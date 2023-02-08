@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="https://www.w3.org/1999/xhtml"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <title>PDF de prueba</title>
+    <style>
+      html {
+        font-family: Arial, sans-serif;
+        width: 90%;
+        margin: auto;
+      }
+      p {
+        line-height: 1.4;
+      }
+      th {
+        text-align: left;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-right {
+        text-align: right;
+      }
+      .white-text {
+        color: white;
+      }
+      .bold-text {
+        font-weight: bold;
+      }
+      .ticket-intersection {
+        background-color: #3c469d;
+        padding: 5px 0;
+      }
+      .no-margin {
+        margin: 0;
+      }
+      .content {
+        padding: 0 20px;
+      }
+      table {
+        margin: 2% 0;
+        width: 100%;
+      }
+      .no-decoration {
+        text-decoration: none;
+      }
+      .title-icon {
+        max-height: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="text-center">
+        <br>
+        <div class="ticket-intersection">
+          <h2 class="white-text no-margin">
+            <span class="vertical-align"> Django avanzado</span>
+          </h2>
+        </div>
+      </div>
+      <table>
+        <tbody>
+          <tr>
+            <th class="cell-background text-center" >
+              <h3 class="no-margin">Nombre</h3>
+            </th>
+            <th class="cell-background text-center" >
+                <h3 class="no-margin">Apellido</h3>
+              </th>
+              <th class="cell-background text-center" >
+                <h3 class="no-margin">Edad</h3>
+              </th>
+          </tr>
+          {% for student in students %}
+            <tr>
+                <td>
+                <p class="no-margin text-center">
+                    <span class="bold-text">{{ student.name }}</span>
+                </p>
+                </td>
+                <td>
+                    <p class="no-margin text-center">
+                        <span class="bold-text">{{ student.last_name }}</span>
+                    </p>
+                </td>
+                <td>
+                    <p class="no-margin text-center">
+                        <span class="bold-text">{{ student.age }}</span>
+                    </p>
+                </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
