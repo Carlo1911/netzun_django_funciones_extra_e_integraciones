@@ -11,5 +11,4 @@ urlpatterns = [
     path("qr-generator", views.QRGenerator.as_view()),
     path("excel-openpyxl", views.OpenpyxlExcel.as_view()),
     path("excel-xlsxwriter", views.XlsxwriterExcel.as_view()),
-    path("pdf", views.PDFGenerator.as_view()),
 ]

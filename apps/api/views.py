@@ -12,8 +12,6 @@ from django.utils.html import strip_tags
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font
 from rest_framework.views import APIView
-from weasyprint import CSS, HTML
-from weasyprint.text.fonts import FontConfiguration
 
 
 class MailtrapEmail(APIView):
@@ -201,25 +199,4 @@ class XlsxwriterExcel(APIView):
 
         wb.close()
 
-        return response
-
-class PDFGenerator(APIView):
-    def post(self, request):
-        students = request.data.get("students", "[]")
-
-        font_config = FontConfiguration()
-
-        css = CSS(
-            string="""
-        @page {
-            size: A4;
-            margin: 0cm;
-            }
-        """,
-            font_config=font_config,
-        )
-        html = render_to_string("pdf_template.html", {"students": students})
-        response = HttpResponse(content_type="application/pdf")
-        response["Content-Disposition"] = 'attachment; filename="pdf_weasyprint.pdf"'
-        HTML(string=html).write_pdf(response, stylesheets=[css], font_config=font_config)
         return response
